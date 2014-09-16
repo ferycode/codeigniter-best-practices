@@ -8,7 +8,7 @@ Penerapan Codeigniter Best Practices
 Spesifikasi :
 
 - Codeigniter 2.2.0
-- Wiredesigz HMVC
+- Wiredesignz HMVC
 - Codeigniter Spark
 - PHP Composer
 - Phil Sturgeon Template Library
