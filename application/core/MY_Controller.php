@@ -15,6 +15,11 @@ class MY_Controller extends MX_Controller {
 			redirect('admin/login');
 		}
 
+		$this->load->library('zf_cache', array('lifetime' => 900));
+        $this->zf_cache = $this->zf_cache->get_instance();
+        
+        $this->output->enable_profiler(ENVIRONMENT == 'development');
+
 	}
 }
 
