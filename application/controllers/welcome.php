@@ -3,7 +3,7 @@
 // LOAD TEXTILE
 use \Netcarver\Textile;
 
-class Welcome extends CI_Controller {
+class Welcome extends MY_Controller {
 
 	public function __construct()
 	{
@@ -11,9 +11,9 @@ class Welcome extends CI_Controller {
 
 		$this->ion_auth->login('admin@admin.com','password');
 		
-		if ($this->ion_auth->logged_in() == FALSE) {
-			redirect('user/login');
-		}
+		// if ($this->ion_auth->logged_in() == FALSE) {
+		// 	redirect('user/login');
+		// }
 	}
 
 	/**
@@ -44,6 +44,11 @@ class Welcome extends CI_Controller {
 		$string .= '* List 3'. PHP_EOL ;
 
 		echo $parser->textileThis($string);
+	}
+
+	public function logout()
+	{
+		$this->ion_auth->logout();
 	}
 }
 

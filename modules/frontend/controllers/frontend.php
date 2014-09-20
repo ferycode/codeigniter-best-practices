@@ -8,6 +8,7 @@ class Frontend extends MX_Controller {
         parent::__construct();
         $this->load->library('form_validation');
         $this->form_validation->CI =& $this;
+        $this->output->enable_profiler(ENVIRONMENT == "development");
     }
 
 	public function index()
@@ -36,6 +37,10 @@ class Frontend extends MX_Controller {
 		//this will be available in layout file as $template['body']
 		//$this->template->build('home', $data);
 
+		// $user = $this->ion_auth->user()->row();
+		// dump_exit($user);
+
+		$this->benchmark->mark('template_start');
 		$this->template->title("Fery Code | Fery Dedi Supardi's Portofolio Website")
                        ->set_theme('freelancer')
                        ->set_layout('layout')
@@ -43,6 +48,7 @@ class Frontend extends MX_Controller {
                        ->set_partial('header','header',$data)
                        ->set_partial('footer','footer')
                        ->build('home', $data);
+        $this->benchmark->mark('template_end');
 	}
 
 	public function coba()
